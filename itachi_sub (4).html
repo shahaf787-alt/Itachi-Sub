@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itachi Sub - תרגום סדרות anime</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Rubik) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    },
+                    colors: {
+                        sharingan: {
+                            50: '#fff5f5',
+                            100: '#ffe3e3',
+                            200: '#ffc9c9',
+                            300: '#ffa1a1',
+                            400: '#ff6b6b',
+                            500: '#ff2e2e', // Sharingan Bright Red
+                            600: '#e51a1a', 
+                            700: '#c21010', // Dark blood red
+                            800: '#9b0f0f',
+                            900: '#5c0a0a',
+                        },
+                        darkbg: {
+                            950: '#0a0a0c', // Deep black-blue
+                            900: '#111115', // Rich charcoal
+                            800: '#1a1a22', // Card background
+                            700: '#252530',
+                        }
+                    },
+                    boxShadow: {
+                        'red-glow': '0 0 15px rgba(229, 26, 26, 0.4)',
+                        'red-glow-strong': '0 0 25px rgba(229, 26, 26, 0.65)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar for premium anime feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111115;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e51a1a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff2e2e;
+        }
+        
+        /* Spin Animation for Logo Sharingan */
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .sharingan-spin:hover {
+            animation: spin-slow 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-darkbg-950 text-slate-100 font-sans min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-darkbg-950/95 backdrop-blur border-b border-sharingan-900/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Logo with Sharingan SVG -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="bg-gradient-to-tr from-sharingan-700 to-sharingan-500 p-2 rounded-xl shadow-red-glow">
+                        <svg class="w-8 h-8 text-white sharingan-spin transition-all duration-500" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="6"/>
+                            <circle cx="50" cy="50" r="10"/>
+                            <!-- Tomoe 1 -->
+                            <path d="M50,22 C44,22 41,27 41,32 C41,37 46,39 50,37 C54,35 56,31 53,26 C52,24 51,22 50,22 Z" fill="black"/>
+                            <!-- Tomoe 2 -->
+                            <g transform="rotate(120 50 50)">
+                                <path d="M50,22 C44,22 41,27 41,32 C41,37 46,39 50,37 C54,35 56,31 53,26 C52,24 51,22 50,22 Z" fill="black"/>
+                            </g>
+                            <!-- Tomoe 3 -->
+                            <g transform="rotate(240 50 50)">
+                                <path d="M50,22 C44,22 41,27 41,32 C41,37 46,39 50,37 C54,35 56,31 53,26 C52,24 51,22 50,22 Z" fill="black"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xl sm:text-2xl font-black tracking-wider bg-gradient-to-r from-white to-sharingan-500 bg-clip-text text-transparent">Itachi Sub</span>
+                        <span class="block text-[10px] text-sharingan-400 font-semibold tracking-widest uppercase">צוות תרגום האנימה המוביל</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-1">
+                    <button onclick="navigateTo('home')" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium hover:bg-darkbg-800 hover:text-white transition-all text-sharingan-500 bg-darkbg-900/80 border border-sharingan-900/20" id="nav-home">
+                        <i class="fa-solid fa-house ml-1.5 text-xs"></i>ראשי
+                    </button>
+                    <button onclick="navigateTo('projects')" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-darkbg-800 hover:text-white transition-all" id="nav-projects">
+                        <i class="fa-solid fa-fire ml-1.5 text-xs"></i>פרויקטים
+                    </button>
+                    <button onclick="navigateTo('recruit')" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-darkbg-800 hover:text-white transition-all" id="nav-recruit">
+                        <i class="fa-solid fa-scroll ml-1.5 text-xs"></i>דרושים לצוות
+                    </button>
+                    <!-- Locked Team Dashboard Access -->
+                    <button onclick="openPasscodeModal()" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-amber-400 hover:bg-amber-500/10 hover:text-amber-300 border border-amber-500/20 transition-all" id="nav-admin">
+                        <i class="fa-solid fa-lock ml-1.5 text-xs"></i>צוות האתר
+                    </button>
+                </nav>
+
+                <!-- Action Button & Search -->
+                <div class="flex items-center gap-3">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="global-search" onkeyup="handleGlobalSearch(event)" placeholder="חיפוש anime..." class="bg-darkbg-900 border border-darkbg-700 rounded-xl py-1.5 pr-9 pl-4 text-sm text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sharingan-600 w-44 focus:w-60 transition-all duration-300">
+                        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                    </div>
+                    <!-- Discord Quick Access Button -->
+                    <a href="https://discord.gg/HpTRkD9XY" target="_blank" class="hidden lg:flex bg-[#5865F2] hover:bg-[#4752C4] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl transition-all items-center gap-1.5 shadow-md">
+                        <i class="fa-brands fa-discord text-base"></i>הדיסקורד שלנו
+                    </a>
+                    <!-- Recruit CTA -->
+                    <button onclick="navigateTo('recruit')" class="bg-gradient-to-l from-sharingan-700 to-sharingan-600 hover:from-sharingan-600 hover:to-sharingan-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-red-glow hover:shadow-red-glow-strong transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-feather-pointed ml-1.5"></i>הצטרפות לצוות
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-slate-400 hover:text-white p-2 rounded-lg hover:bg-darkbg-800">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-darkbg-800 bg-darkbg-950 px-4 py-3 space-y-2">
+            <input type="text" id="mobile-global-search" onkeyup="handleGlobalSearch(event)" placeholder="חיפוש..." class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl py-2 pr-9 pl-4 text-sm text-slate-100 placeholder-slate-400 mb-2">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="w-full text-right px-4 py-2.5 rounded-xl text-sm font-semibold text-sharingan-400 bg-darkbg-900 block"><i class="fa-solid fa-house ml-2"></i>ראשי</button>
+            <button onclick="navigateTo('projects'); toggleMobileMenu()" class="w-full text-right px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-darkbg-900 block"><i class="fa-solid fa-fire ml-2"></i>פרויקטים</button>
+            <button onclick="navigateTo('recruit'); toggleMobileMenu()" class="w-full text-right px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-darkbg-900 block"><i class="fa-solid fa-scroll ml-2"></i>דרושים לצוות</button>
+            <a href="https://discord.gg/HpTRkD9XY" target="_blank" class="w-full text-right px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-[#5865F2] block"><i class="fa-brands fa-discord ml-2"></i>שרת הדיסקורד הרשמי</a>
+            <button onclick="openPasscodeModal(); toggleMobileMenu()" class="w-full text-right px-4 py-2.5 rounded-xl text-sm font-bold text-amber-400 bg-amber-950/20 block border border-amber-500/30"><i class="fa-solid fa-lock ml-2"></i>צוות האתר (ניהול)</button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        
+        <!-- ==================== HOME PAGE ==================== -->
+        <div id="page-home" class="page-section">
+            <!-- Hero Banner -->
+            <section class="relative bg-slate-950 overflow-hidden min-h-[400px] sm:min-h-[500px] flex items-center">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover opacity-20 filter blur-[1px]" alt="Itachi Art Background">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkbg-950 via-darkbg-950/70 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-darkbg-950/90 via-transparent to-darkbg-950/90"></div>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12">
+                    <div class="max-w-3xl">
+                        <span class="bg-sharingan-700/30 text-sharingan-400 text-xs font-bold px-3.5 py-1.5 rounded-full border border-sharingan-500/40 uppercase tracking-wider mb-4 inline-block">
+                            <i class="fa-solid fa-star ml-1"></i>ברוכים הבאים לאתר הרשמי
+                        </span>
+                        <!-- Displaying the Itachi Sub brand prominently -->
+                        <h1 class="text-5xl sm:text-7xl font-black mb-2 leading-none bg-gradient-to-r from-white via-sharingan-400 to-sharingan-600 bg-clip-text text-transparent tracking-tight">Itachi Sub</h1>
+                        <p class="text-xl sm:text-2xl font-bold text-slate-300 mb-6">צוות תרגום האנימה והמנגה שלכם לעברית</p>
+                        
+                        <p class="text-slate-400 text-sm sm:text-base mb-8 leading-relaxed max-w-xl">
+                            אנו מביאים לכם את תרגומי האיכות המקצועיים ביותר, כתוביות מוטמעות ומדויקות ושרתי צפייה מהירים במיוחד.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <a href="https://discord.gg/HpTRkD9XY" target="_blank" class="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold px-6 py-3 rounded-xl shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                                <i class="fa-brands fa-discord text-lg"></i>הצטרפו לשרת הדיסקורד
+                            </a>
+                            <button onclick="openPasscodeModal()" class="bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold px-6 py-3 rounded-xl shadow-red-glow transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-unlock-keyhole"></i>כניסת צוות להעלאת תוכן
+                            </button>
+                            <button onclick="navigateTo('projects')" class="bg-darkbg-800 hover:bg-darkbg-700 border border-slate-700 text-slate-200 font-bold px-6 py-3 rounded-xl transition-all">
+                                למאגר הפרויקטים
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest Episodes & Updates -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="flex items-center justify-between mb-8 border-r-4 border-sharingan-600 pr-3">
+                    <div>
+                        <h2 class="text-2xl font-black tracking-tight text-white">הפרקים האחרונים שעלו</h2>
+                        <p class="text-xs text-slate-400 mt-1">תרגומי איכות זמינים לצפייה ישירה והורדה מיידית</p>
+                    </div>
+                </div>
+
+                <!-- Episodes Grid & Empty state -->
+                <div id="latest-episodes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Loaded dynamically via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Stats/Sub Banner -->
+            <section class="bg-gradient-to-r from-darkbg-900 to-sharingan-950 border-y border-sharingan-900/30 py-12 mb-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2" id="stat-projects">0</div>
+                        <div class="text-slate-400 text-xs sm:text-sm font-medium">סדרות שתורגמו</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2" id="stat-episodes">0</div>
+                        <div class="text-slate-400 text-xs sm:text-sm font-medium">פרקים זמינים</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2" id="stat-team">0</div>
+                        <div class="text-slate-400 text-xs sm:text-sm font-medium">חברי צוות פעילים</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2 flex items-center justify-center gap-1" id="stat-views-wrapper">
+                            <span id="stat-views">0</span>
+                            <span class="text-xs text-sharingan-500 font-bold self-end mb-1">LIVE</span>
+                        </div>
+                        <div class="text-slate-400 text-xs sm:text-sm font-medium">כניסות גולשים (אמיתי)</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ==================== PROJECTS PAGE ==================== -->
+        <div id="page-projects" class="page-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Filter Header -->
+            <div class="bg-darkbg-850 p-6 rounded-2xl border border-darkbg-800 mb-8 shadow-md">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-black text-white">מאגר הפרויקטים - Itachi Sub</h1>
+                        <p class="text-sm text-slate-400 mt-1">חפשו וסננו בין כל פרויקטי האנימה שתורגמו על ידי Itachi Sub</p>
+                    </div>
+                    <!-- Project Filter Bar -->
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="filterProjects('all')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-sharingan-600 text-white shadow-red-glow" id="filter-all">הכל</button>
+                        <button onclick="filterProjects('פעיל')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-darkbg-800 text-slate-300 hover:bg-darkbg-700" id="filter-active">פרויקטים פעילים</button>
+                        <button onclick="filterProjects('הושלם')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-darkbg-800 text-slate-300 hover:bg-darkbg-700" id="filter-completed">הושלמו</button>
+                        <button onclick="filterProjects('סרט')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-darkbg-800 text-slate-300 hover:bg-darkbg-700" id="filter-movie">סרטים/אובות</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anime List Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Loaded dynamically via JS -->
+            </div>
+        </div>
+
+
+        <!-- ==================== PLAYER & EPISODE PAGE ==================== -->
+        <div id="page-player" class="page-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Main Player Area -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Path Indicator -->
+                    <nav class="text-xs sm:text-sm text-slate-400 flex items-center gap-2 overflow-x-auto whitespace-nowrap py-1">
+                        <span class="hover:text-white cursor-pointer" onclick="navigateTo('home')">ראשי</span>
+                        <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                        <span class="hover:text-white cursor-pointer" onclick="navigateTo('projects')">פרויקטים</span>
+                        <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                        <span id="player-path-anime" class="text-sharingan-400 font-medium">שם האנימה</span>
+                        <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                        <span id="player-path-episode" class="text-slate-200">פרק 0</span>
+                    </nav>
+
+                    <!-- Title of the episode -->
+                    <div class="border-r-4 border-sharingan-600 pr-4">
+                        <h1 id="player-anime-title" class="text-2xl sm:text-3xl font-black text-white">שם האנימה</h1>
+                        <p id="player-episode-title" class="text-sm text-slate-400 mt-1">פרק 1: שם הפרק כאן</p>
+                    </div>
+
+                    <!-- Video Player Container -->
+                    <div class="bg-black rounded-2xl overflow-hidden aspect-video relative shadow-2xl border border-darkbg-800 group">
+                        
+                        <!-- Custom Mock Player Interface -->
+                        <div id="video-wrapper" class="w-full h-full relative bg-slate-950 flex items-center justify-center">
+                            <img id="player-bg-poster" src="" class="absolute inset-0 w-full h-full object-cover opacity-10 filter blur-xl" alt="Blur Background">
+                            
+                            <!-- Static Video / Image representing Player -->
+                            <div class="absolute inset-0 flex items-center justify-center z-10">
+                                <div class="text-center p-6 bg-slate-900/80 backdrop-blur-md rounded-2xl max-w-md mx-4 border border-darkbg-700/50">
+                                    <div class="w-16 h-16 bg-sharingan-600 rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer shadow-red-glow hover:scale-105 transition-all" onclick="startMockVideoPlay()">
+                                        <i class="fa-solid fa-play text-white text-2xl mr-1"></i>
+                                    </div>
+                                    <h4 class="text-base font-bold text-white mb-2">מוכן לצפייה ישירה</h4>
+                                    <p class="text-xs text-slate-400 mb-4">הנגן של Itachi Sub תומך בהזרמה מהירה, בחירת איכות וכתוביות בעברית מוטמעות (Hardsub).</p>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <span class="text-[10px] bg-sharingan-900/40 border border-sharingan-700 text-sharingan-400 px-2 py-1 rounded">HEB Sub</span>
+                                        <span class="text-[10px] bg-emerald-950 border border-emerald-700 text-emerald-400 px-2 py-1 rounded">1080p FHD</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Fake Stream -->
+                            <div id="fake-video-overlay" class="hidden absolute inset-0 z-20 bg-black flex flex-col items-center justify-center">
+                                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-sharingan-500 mb-4"></div>
+                                <span class="text-sm font-semibold tracking-wide text-slate-200">טוען את נגן הזרמת הווידאו...</span>
+                            </div>
+
+                            <!-- Real Frame Simulated Box -->
+                            <iframe id="video-iframe" class="hidden w-full h-full absolute inset-0 z-0" src="" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Episode Quick Controls -->
+                    <div class="flex items-center justify-between bg-darkbg-900 p-4 rounded-xl border border-darkbg-800">
+                        <button id="prev-ep-btn" onclick="navigateEpisode(-1)" class="flex items-center gap-2 text-xs sm:text-sm bg-darkbg-800 hover:bg-darkbg-700 text-slate-200 px-4 py-2.5 rounded-lg font-bold transition-all disabled:opacity-50 disabled:pointer-events-none">
+                            <i class="fa-solid fa-arrow-right"></i> הפרק הקודם
+                        </button>
+                        <div class="text-xs sm:text-sm text-slate-400 font-semibold">
+                            נגן מותאם <span class="text-sharingan-400">Itachi Sub Player</span>
+                        </div>
+                        <button id="next-ep-btn" onclick="navigateEpisode(1)" class="flex items-center gap-2 text-xs sm:text-sm bg-sharingan-600 hover:bg-sharingan-700 text-white px-4 py-2.5 rounded-lg font-bold shadow-red-glow transition-all disabled:opacity-50 disabled:pointer-events-none">
+                            הפרק הבא <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <!-- Download Options -->
+                    <div class="bg-darkbg-800 p-6 rounded-2xl border border-darkbg-700/60 shadow-lg">
+                        <h3 class="text-lg font-black text-white mb-4 flex items-center gap-2 border-b border-darkbg-700 pb-3">
+                            <i class="fa-solid fa-download text-sharingan-500"></i>קישורי צפייה והורדה חלופיים
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <a href="#" id="download-link-mega" target="_blank" class="flex items-center justify-between bg-slate-900 hover:bg-slate-950 p-3.5 rounded-xl border border-slate-800 group transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-red-950/50 p-2 rounded-lg text-red-500">
+                                        <i class="fa-solid fa-cloud-arrow-down text-lg"></i>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="block text-sm font-bold text-white">Mega</span>
+                                        <span class="block text-[10px] text-slate-400">הורדה מהירה</span>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-white transition-colors"></i>
+                            </a>
+                            <a href="#" id="download-link-drive" target="_blank" class="flex items-center justify-between bg-slate-900 hover:bg-slate-950 p-3.5 rounded-xl border border-slate-800 group transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-blue-950/50 p-2 rounded-lg text-blue-500">
+                                        <i class="fa-brands fa-google-drive text-lg"></i>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="block text-sm font-bold text-white">Google Drive</span>
+                                        <span class="block text-[10px] text-slate-400">גיבוי בענן</span>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-white transition-colors"></i>
+                            </a>
+                            <a href="https://discord.gg/HpTRkD9XY" target="_blank" class="flex items-center justify-between bg-slate-900 hover:bg-slate-950 p-3.5 rounded-xl border border-slate-800 group transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-indigo-950/50 p-2 rounded-lg text-indigo-400">
+                                        <i class="fa-brands fa-discord text-lg"></i>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="block text-sm font-bold text-white">דיסקורד</span>
+                                        <span class="block text-[10px] text-slate-400">פתיחת טיקט</span>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-white transition-colors"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="bg-darkbg-800 p-6 rounded-2xl border border-darkbg-700/60 shadow-lg space-y-6">
+                        <div class="flex items-center justify-between border-b border-darkbg-700 pb-3">
+                            <h3 class="text-lg font-black text-white flex items-center gap-2">
+                                <i class="fa-regular fa-comments text-sharingan-500"></i>איזור תגובות ושיח
+                            </h3>
+                            <span id="comment-count" class="bg-darkbg-900 border border-darkbg-700 px-2.5 py-1 rounded-full text-xs font-bold text-slate-300">0 תגובות</span>
+                        </div>
+
+                        <!-- Comment form -->
+                        <form id="comment-form" onsubmit="handleNewComment(event)" class="space-y-3">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <input type="text" id="comment-author" required placeholder="כינוי או שם שלכם..." class="bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                                <span class="hidden sm:flex items-center text-xs text-slate-400">תגובות בוגרות ומכבדות תתקבלנה בברכה!</span>
+                            </div>
+                            <textarea id="comment-text" required rows="3" placeholder="כתבו משהו נחמד על הפרק..." class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sharingan-600"></textarea>
+                            <div class="text-left">
+                                <button type="submit" class="bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-red-glow transition-all">
+                                    שליחת תגובה <i class="fa-regular fa-paper-plane mr-1 text-xs"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Comments Container -->
+                        <div id="comments-container" class="space-y-4 divide-y divide-darkbg-700/40">
+                            <!-- Injected dynamically via JS -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Anime Info & Episode Selector -->
+                <div class="space-y-6">
+                    
+                    <!-- Main Anime Card Details -->
+                    <div class="bg-darkbg-800 rounded-2xl overflow-hidden border border-darkbg-700/50 shadow-xl">
+                        <div class="h-44 relative bg-slate-900">
+                            <img id="player-card-banner" src="" class="w-full h-full object-cover opacity-60" alt="Anime Card Banner" onerror="this.src='https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkbg-800 to-transparent"></div>
+                            <span id="player-card-status" class="absolute top-4 right-4 bg-sharingan-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md">סטטוס</span>
+                        </div>
+                        <div class="p-6 relative -mt-10">
+                            <div class="flex gap-4 items-end mb-4">
+                                <img id="player-card-thumbnail" src="" class="w-20 h-28 object-cover rounded-xl shadow-md border-2 border-darkbg-800 animate-fade-in" alt="Thumbnail" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200&auto=format&fit=crop'">
+                                <div>
+                                    <h4 id="player-card-title" class="font-black text-white text-lg">שם האנימה</h4>
+                                    <p id="player-card-genres" class="text-xs text-sharingan-400 font-semibold mt-1">ז'אנר</p>
+                                </div>
+                            </div>
+                            <p id="player-card-description" class="text-xs text-slate-300 leading-relaxed mt-2 border-t border-darkbg-700 pt-3">
+                                תקציר האנימה מופיע כאן בצורה מקיפה וברורה לטובת חברי הקהילה.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Ep List Component -->
+                    <div class="bg-darkbg-800 p-5 rounded-2xl border border-darkbg-700/50 shadow-xl">
+                        <h3 class="text-base font-black text-white mb-4 pb-2 border-b border-darkbg-700 flex items-center justify-between">
+                            <span>רשימת הפרקים זמינים</span>
+                            <span id="player-ep-count" class="text-xs text-slate-400 bg-darkbg-900 px-2 py-0.5 rounded font-normal">0 פרקים</span>
+                        </h3>
+                        <div class="relative mb-3">
+                            <input type="text" id="series-ep-search" oninput="searchEpisodesInPlayer(this.value)" placeholder="סינון לפי מספר פרק..." class="w-full bg-darkbg-900 border border-darkbg-700 rounded-lg py-1.5 pr-8 pl-3 text-xs text-slate-100 focus:outline-none focus:ring-1 focus:ring-sharingan-600">
+                            <i class="fa-solid fa-filter absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-[10px]"></i>
+                        </div>
+                        <div class="max-h-72 overflow-y-auto space-y-1.5 pr-1" id="player-episodes-list">
+                            <!-- Dynamic Content -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ==================== RECRUIT PAGE (JOIN US) ==================== -->
+        <div id="page-recruit" class="page-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                
+                <!-- Recruitment Intro and Info (Left) -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="border-r-4 border-sharingan-600 pr-4">
+                        <h1 class="text-3xl font-black text-white">דרושים לצוות Itachi Sub</h1>
+                        <p class="text-sm text-slate-400 mt-1">אוהבים anime ורוצים לתרום לקהילה בישראל?</p>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        אנחנו תמיד מחפשים אנשים רציניים עם מוטיבציה גבוהה שרוצים לקחת חלק בפרויקטים הבאים שלנו. אין צורך בניסיון קודם - אנחנו נעניק לכם מדריכים, עזרה וחניכה לכל אורך הדרך!
+                    </p>
+
+                    <!-- Available positions list -->
+                    <div class="space-y-4">
+                        <div class="bg-darkbg-800 p-4 rounded-xl border border-darkbg-700 flex items-start gap-3">
+                            <span class="bg-sharingan-950 text-sharingan-400 p-2 rounded-lg text-sm mt-0.5"><i class="fa-solid fa-language"></i></span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">מתרגמים (יפנית / אנגלית)</h4>
+                                <p class="text-xs text-slate-400 mt-1">תרגום משמיעה או תרגום כתוביות מאנגלית לעברית שוטפת ונכונה.</p>
+                            </div>
+                        </div>
+                        <div class="bg-darkbg-800 p-4 rounded-xl border border-darkbg-700 flex items-start gap-3">
+                            <span class="bg-indigo-950 text-indigo-400 p-2 rounded-lg text-sm mt-0.5"><i class="fa-solid fa-spell-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">עורכים לשוניים</h4>
+                                <p class="text-xs text-slate-400 mt-1">שיפוץ ניסוחים, תיקון שגיאות כתיב והגהה מקיפה של הכתוביות המוכנות.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card (Right) -->
+                <div class="lg:col-span-3 bg-darkbg-800 p-6 sm:p-8 rounded-2xl border border-darkbg-700 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-question text-sharingan-500"></i>מילוי שאלון גיוס
+                    </h2>
+
+                    <form id="recruitment-form" onsubmit="submitRecruitment(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">כינוי / שם מלא</label>
+                                <input type="text" id="recruit-name" required placeholder="לדוגמה: נארוטו..." class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">חשבון דיסקורד (Discord)</label>
+                                <input type="text" id="recruit-discord" required placeholder="itachi_user..." class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">כתובת אימייל</label>
+                            <input type="email" id="recruit-email" required placeholder="name@example.com" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">לאיזה תפקיד תרצה/י להגיש מועמדות?</label>
+                            <select id="recruit-role" required class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                                <option value="">בחרו תפקיד...</option>
+                                <option value="מתרגם">מתרגם/ת</option>
+                                <option value="עורך לשוני">עורך/כת לשוני/ת</option>
+                                <option value="מקודד">מקודד/ת</option>
+                            </select>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" class="w-full bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold py-3.5 rounded-xl shadow-red-glow hover:shadow-red-glow-strong transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>שליחת מועמדות לצוות האתר
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ==================== ADMIN PANEL / TEAM PAGE (LOCKED - CODE 1224) ==================== -->
+        <div id="page-admin" class="page-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="bg-amber-950/20 border border-amber-500/30 p-6 rounded-2xl mb-8 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-amber-500 text-slate-950 p-3 rounded-xl text-xl">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-black text-white">פאנל ניהול ותוכן - צוות Itachi Sub</h1>
+                        <p class="text-sm text-amber-400">יש לכם הרשאות צוות. כאן תוכלו להוסיף סדרות, פרקים ולנהל בקשות הצטרפות.</p>
+                    </div>
+                </div>
+                <button onclick="logoutAdmin()" class="bg-darkbg-800 hover:bg-red-900/30 text-red-400 hover:text-red-300 border border-red-500/20 text-xs px-4 py-2.5 rounded-xl font-bold transition-all">
+                    <i class="fa-solid fa-arrow-right-from-bracket ml-1.5"></i>יציאה מפאנל הניהול
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Section: Add New Anime -->
+                <div class="bg-darkbg-800 p-6 sm:p-8 rounded-2xl border border-darkbg-700 shadow-xl space-y-4">
+                    <h2 class="text-lg font-black text-white flex items-center gap-2 border-b border-darkbg-700 pb-3">
+                        <i class="fa-solid fa-folder-plus text-sharingan-500"></i>שלב 1: הוספת סדרת אנימה חדשה
+                    </h2>
+                    <form id="admin-add-anime-form" onsubmit="handleAdminAddAnime(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">שם האנימה (עברית)</label>
+                                <input type="text" id="anime-title" required placeholder="לדוגמה: נארוטו שיפודן" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">שם האנימה (אנגלית)</label>
+                                <input type="text" id="anime-eng-title" required placeholder="לדוגמה: Naruto Shippuden" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">ז'אנרים (מופרדים בפסיק)</label>
+                                <input type="text" id="anime-genres" required placeholder="אקשן, הרפתקאות, שונן" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">סטטוס פרויקט</label>
+                                <select id="anime-status" required class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                                    <option value="פעיל">פעיל (בתרגום שבועי)</option>
+                                    <option value="הושלם">הושלם</option>
+                                    <option value="סרט">סרט / אובה</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">קישור לתמונת באנר (רחב)</label>
+                            <input type="url" id="anime-banner-url" required placeholder="https://images.unsplash.com/... (או קישור תמונה אחר)" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            
+                            <!-- Live Banner Preview Panel -->
+                            <div class="mt-2 h-24 w-full overflow-hidden rounded-xl border border-darkbg-700 bg-slate-950/60 flex items-center justify-center relative">
+                                <span id="banner-preview-placeholder" class="text-[10px] text-slate-500 font-medium">תצוגה מקדימה לבאנר (יתעדכן בהקלדה)</span>
+                                <img id="banner-preview" src="" class="absolute inset-0 w-full h-full object-cover hidden" alt="Banner Preview">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">קישור לתמונה ממוזערת (Thumbnail)</label>
+                            <input type="url" id="anime-thumb-url" required placeholder="https://images.unsplash.com/... (או קישור תמונה אנכי)" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            
+                            <!-- Live Thumbnail Preview Panel -->
+                            <div class="mt-2 h-28 w-20 overflow-hidden rounded-xl border border-darkbg-700 bg-slate-950/60 flex items-center justify-center relative mx-auto">
+                                <span id="thumb-preview-placeholder" class="text-[10px] text-slate-500 text-center px-1">תצוגה מקדימה קטנה</span>
+                                <img id="thumb-preview" src="" class="absolute inset-0 w-full h-full object-cover hidden" alt="Thumbnail Preview">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">תקציר הסדרה</label>
+                            <textarea id="anime-description" required rows="3" placeholder="כתבו כאן את תקציר עלילת האנימה..." class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold py-3 rounded-xl shadow-red-glow transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-circle-check"></i>צור והוסף את האנימה למערכת
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Section: Add Episode to Existing Anime -->
+                <div class="bg-darkbg-800 p-6 sm:p-8 rounded-2xl border border-darkbg-700 shadow-xl space-y-4">
+                    <h2 class="text-lg font-black text-white flex items-center gap-2 border-b border-darkbg-700 pb-3">
+                        <i class="fa-solid fa-photo-film text-sharingan-500"></i>שלב 2: הוספת פרק לסדרה קיימת
+                    </h2>
+                    <form id="admin-add-episode-form" onsubmit="handleAdminAddEpisode(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">בחרו את סדרת האנימה</label>
+                            <select id="episode-anime-select" required class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                                <option value="">-- בחרו סדרה מתוך הרשימה --</option>
+                                <!-- Populated dynamically from anime database -->
+                            </select>
+                            <p class="text-[10px] text-slate-500 mt-1">יש ליצור סדרה בשלב 1 לפני שניתן להוסיף לה פרקים.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">מספר הפרק</label>
+                                <input type="number" id="episode-number" required min="1" placeholder="לדוגמה: 1" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1.5">תאריך / זמן עדכון</label>
+                                <input type="text" id="episode-date" required placeholder="לדוגמה: היום / לפני שעה" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">שם הפרק בעברית</label>
+                            <input type="text" id="episode-title" required placeholder="לדוגמה: תחילת הדרך" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">קישור לנגן הוידאו (Embed URL)</label>
+                            <input type="url" id="episode-video-url" required placeholder="https://www.youtube.com/embed/... (או נגן חיצוני תומך iFrame)" class="w-full bg-darkbg-900 border border-darkbg-700 rounded-xl px-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-sharingan-600">
+                        </div>
+
+                        <button type="submit" class="w-full bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold py-3 rounded-xl shadow-red-glow transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus-circle"></i>פרסם והעלה את הפרק לאתר
+                        </button>
+                    </form>
+                </div>
+
+                <!-- NEW Section: Manage Existing Anime (ניהול סדרות קיימות) -->
+                <div class="col-span-1 lg:col-span-2 bg-darkbg-800 p-6 sm:p-8 rounded-2xl border border-darkbg-700 shadow-xl space-y-4">
+                    <div class="flex items-center justify-between border-b border-darkbg-700 pb-3">
+                        <h2 class="text-lg font-black text-white flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-amber-500"></i>שלב 3: ניהול סדרות קיימות באתר
+                        </h2>
+                        <span id="manage-anime-badge" class="bg-amber-500 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-full">0 סדרות</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs sm:text-sm">
+                            <thead>
+                                <tr class="border-b border-darkbg-700 text-slate-400">
+                                    <th class="pb-3 pr-2">שם הסדרה</th>
+                                    <th class="pb-3">ז'אנר</th>
+                                    <th class="pb-3 text-center">פרקים במערכת</th>
+                                    <th class="pb-3 text-center">סטטוס נוכחי</th>
+                                    <th class="pb-3 text-left">שינוי סטטוס / מחיקה</th>
+                                </tr>
+                            </thead>
+                            <tbody id="manage-anime-tbody" class="divide-y divide-darkbg-700/50">
+                                <!-- Loaded dynamically via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Section: Recruitment Applications (בקשות הצטרפות לצוות) -->
+                <div class="col-span-1 lg:col-span-2 bg-darkbg-800 p-6 sm:p-8 rounded-2xl border border-darkbg-700 shadow-xl space-y-4">
+                    <div class="flex items-center justify-between border-b border-darkbg-700 pb-3">
+                        <h2 class="text-lg font-black text-white flex items-center gap-2">
+                            <i class="fa-solid fa-envelope-open-text text-amber-500"></i>בקשות הצטרפות לצוות האתר
+                        </h2>
+                        <span id="recruitment-badge" class="bg-amber-500 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-full">0 מועמדים</span>
+                    </div>
+                    
+                    <!-- Table Container with responsive horizontal scroll -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs sm:text-sm">
+                            <thead>
+                                <tr class="border-b border-darkbg-700 text-slate-400">
+                                    <th class="pb-3 pr-2">שם מועמד</th>
+                                    <th class="pb-3">חשבון דיסקורד</th>
+                                    <th class="pb-3">כתובת אימייל</th>
+                                    <th class="pb-3">תפקיד מבוקש</th>
+                                    <th class="pb-3">תאריך הגשה</th>
+                                    <th class="pb-3 text-left">פעולות וניהול</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recruitment-requests-body" class="divide-y divide-darkbg-700/50">
+                                <!-- Loaded dynamically via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Custom Popups / Modals (Replacements for alerts) -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/85 px-4">
+        <div class="bg-darkbg-800 border border-sharingan-500 rounded-2xl max-w-md w-full p-6 text-center shadow-red-glow-strong">
+            <div class="w-16 h-16 bg-sharingan-950 border border-sharingan-500 text-sharingan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-check text-2xl" id="modal-icon"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2" id="modal-title">נשלח בהצלחה!</h3>
+            <p class="text-slate-300 text-sm mb-6 leading-relaxed" id="modal-desc">ההודעה הועברה לצוות המנהלים.</p>
+            <button onclick="closeModal()" class="w-full bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold py-2.5 rounded-xl transition-all">הבנתי, תודה!</button>
+        </div>
+    </div>
+
+    <!-- Passcode Modal to unlock Team Area (Admin Panel) -->
+    <div id="passcode-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/90 px-4">
+        <div class="bg-darkbg-800 border border-amber-500 rounded-2xl max-w-sm w-full p-6 text-center shadow-lg">
+            <div class="w-14 h-14 bg-amber-950 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-amber-500/40">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-1">כניסת צוות האתר</h3>
+            <p class="text-slate-400 text-xs mb-5">הזן את קוד הגישה המאובטח לכניסה</p>
+            
+            <form onsubmit="verifyPasscode(event)" class="space-y-4">
+                <div class="relative">
+                    <input type="password" id="admin-passcode-input" maxlength="4" placeholder="••••" required class="w-full tracking-widest text-center text-xl bg-darkbg-900 border border-darkbg-700 rounded-xl py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 text-white">
+                </div>
+                <div id="passcode-error-msg" class="hidden text-red-500 text-xs font-semibold">
+                    <i class="fa-solid fa-triangle-exclamation ml-1"></i> קוד גישה שגוי, נסה שנית!
+                </div>
+                <div class="flex gap-2">
+                    <button type="button" onclick="closePasscodeModal()" class="w-1/2 bg-darkbg-900 hover:bg-darkbg-700 text-slate-300 text-sm font-semibold py-2.5 rounded-xl transition-all">ביטול</button>
+                    <button type="submit" class="w-1/2 bg-amber-500 hover:bg-amber-600 text-slate-950 text-sm font-bold py-2.5 rounded-xl transition-all">אימות כניסה</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-darkbg-950 border-t border-darkbg-900/60 py-12 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Column 1: Info & Brand -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-xl font-black bg-gradient-to-r from-white to-sharingan-500 bg-clip-text text-transparent">Itachi Sub</span>
+                </div>
+                <p class="text-xs leading-relaxed max-w-xs">
+                    קבוצת תרגום חובבנית שהוקמה על ידי מעריצי אנימה ועבור מעריצי אנימה בישראל. כל הזכויות על התוכן המקורי שמורות ליוצרים המקוריים בלבד.
+                </p>
+                <div class="flex items-center gap-3 text-slate-500">
+                    <a href="https://discord.gg/HpTRkD9XY" target="_blank" class="hover:text-white transition-colors text-lg"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="hover:text-white transition-colors text-lg"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="#" class="hover:text-white transition-colors text-lg"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Navigation Links -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-white text-sm">קישורים מהירים</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <a href="#" onclick="navigateTo('home'); return false;" class="hover:text-sharingan-400 transition-colors">ראשי</a>
+                    <a href="#" onclick="navigateTo('projects'); return false;" class="hover:text-sharingan-400 transition-colors">מאגר הפרויקטים</a>
+                    <a href="#" onclick="navigateTo('recruit'); return false;" class="hover:text-sharingan-400 transition-colors">גיוסים לצוות</a>
+                    <a href="#" onclick="openPasscodeModal(); return false;" class="hover:text-sharingan-400 transition-colors text-amber-400 font-bold">פאנל ניהול צוות</a>
+                </div>
+            </div>
+
+            <!-- Column 3: Disclaimer and Credits -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-white text-sm">הבהרה משפטית</h4>
+                <p class="text-xs leading-relaxed">
+                    אין אתר Itachi Sub מארח קבצי וידאו על שרתיו. כל המדיה והפרקים המוצגים באתר נלקחו מאתרי שיתוף קבצים ואירוח ציבוריים של צד שלישי ברשת האינטרנט.
+                </p>
+                <div class="text-[11px] text-slate-500 mt-2">
+                    פותח באהבה &copy; 2026 Itachi Sub. כל הזכויות שמורות.
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Firebase SDK & Live Cloud Sync System -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, updateDoc, increment, collection, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // בקרת קונפיגורציה יציבה למניעת קריסות (Fallback במידה ואין סביבת הרצה של הפלטפורמה)
+        let firebaseConfig = {
+            apiKey: "",
+            authDomain: "",
+            projectId: "itachi-sub-demo",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: ""
+        };
+
+        let appId = 'itachi-sub-app';
+        let useFirebase = false;
+
+        // בדיקה האם משתני הסביבה קיימים
+        try {
+            if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+                firebaseConfig = JSON.parse(__firebase_config);
+                useFirebase = true;
+            }
+            if (typeof __app_id !== 'undefined' && __app_id) {
+                appId = __app_id;
+            }
+        } catch (e) {
+            console.warn("סביבת Firebase מקומית פעילה (In-Memory mode).");
+        }
+
+        let db, auth;
+        if (useFirebase) {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+            } catch (err) {
+                console.error("שגיאה באתחול Firebase: ", err);
+                useFirebase = false;
+            }
+        }
+
+        // בסיס נתונים מקומי זמני לשימוש במידה ואין חיבור Firebase פעיל
+        let animeDatabase = [];
+        let recruitmentRequests = [];
+        const mockComments = {};
+        let localViews = 1;
+
+        // משתני מצב
+        let currentAnimeId = '';
+        let currentEpisodeNumber = 1;
+        let selectedFilter = 'all';
+        let isAdminAuthenticated = false;
+        let currentUser = null;
+
+        // אתחול אפליקציה ראשוני
+        window.addEventListener('load', () => {
+            // טעינת דף בית ראשוני
+            navigateTo('home');
+            renderLatestEpisodes();
+            renderProjects();
+            updateStats();
+
+            // הפעלת האתחול בהתאם לחיבור הענן
+            if (useFirebase) {
+                initAuth();
+            } else {
+                // הדמיה מקומית
+                document.getElementById('stat-views').innerText = localViews;
+            }
+        });
+
+        // אתחול אימות אנונימי
+        const initAuth = async () => {
+            if (!useFirebase) return;
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.error("התחברות ל-Firebase נכשלה: ", err);
+            }
+        };
+
+        if (useFirebase) {
+            onAuthStateChanged(auth, (user) => {
+                currentUser = user;
+                if (user) {
+                    setupRealtimeSync();
+                    trackRealViews();
+                }
+            });
+        }
+
+        // מעקב אחרי כניסות גולשים אמיתיות
+        async function trackRealViews() {
+            if (!useFirebase || !currentUser) return;
+            const visitedThisSession = sessionStorage.getItem('itachi_sub_visited');
+            const statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'stats', 'global');
+
+            if (!visitedThisSession) {
+                try {
+                    const docSnap = await getDoc(statsDocRef);
+                    if (!docSnap.exists()) {
+                        await setDoc(statsDocRef, { monthlyViews: 1 });
+                    } else {
+                        await updateDoc(statsDocRef, {
+                            monthlyViews: increment(1)
+                        });
+                    }
+                    sessionStorage.setItem('itachi_sub_visited', 'true');
+                } catch (err) {
+                    console.error("שגיאה בעדכון כניסות: ", err);
+                }
+            }
+        }
+
+        // סנכרון בזמן אמת עם הענן
+        function setupRealtimeSync() {
+            if (!useFirebase || !currentUser) return;
+
+            // 1. מעקב כניסות
+            const statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'stats', 'global');
+            onSnapshot(statsDocRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    document.getElementById('stat-views').innerText = docSnap.data().monthlyViews || 0;
+                }
+            }, (err) => console.error("שגיאה בקריאת סטטיסטיקה: ", err));
+
+            // 2. סנכרון רשימת אנימות
+            const animeColl = collection(db, 'artifacts', appId, 'public', 'data', 'anime');
+            onSnapshot(animeColl, (snapshot) => {
+                animeDatabase = [];
+                snapshot.forEach(doc => {
+                    animeDatabase.push({ id: doc.id, ...doc.data() });
+                });
+                renderLatestEpisodes();
+                renderProjects();
+                updateStats();
+                if (isAdminAuthenticated) {
+                    populateAnimeSelectOptions();
+                    renderManageAnimeTable();
+                }
+            }, (err) => console.error("שגיאה בסנכרון פרויקטים: ", err));
+
+            // 3. סנכרון בקשות גיוס לצוות
+            const recruitColl = collection(db, 'artifacts', appId, 'public', 'data', 'recruitment');
+            onSnapshot(recruitColl, (snapshot) => {
+                recruitmentRequests = [];
+                snapshot.forEach(doc => {
+                    recruitmentRequests.push({ id: Number(doc.id), ...doc.data() });
+                });
+                updateStats();
+                if (isAdminAuthenticated) {
+                    renderRecruitmentRequests();
+                }
+            }, (err) => console.error("שגיאה בסנכרון בקשות: ", err));
+
+            // 4. סנכרון מערכת תגובות
+            const commentsColl = collection(db, 'artifacts', appId, 'public', 'data', 'comments');
+            onSnapshot(commentsColl, (snapshot) => {
+                snapshot.forEach(doc => {
+                    mockComments[doc.id] = doc.data().list || [];
+                });
+                if (currentAnimeId) {
+                    renderComments();
+                }
+            }, (err) => console.error("שגיאה בסנכרון תגובות: ", err));
+        }
+
+        // ניווט דפים (Single Page Application)
+        function navigateTo(pageId) {
+            if (pageId === 'admin' && !isAdminAuthenticated) {
+                openPasscodeModal();
+                return;
+            }
+
+            // הסתרת כל הדפים
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // הצגת הדף המבוקש
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // עדכון כפתורי הניווט
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-sharingan-500', 'bg-darkbg-900/80', 'border', 'border-sharingan-900/20');
+                btn.classList.add('text-slate-300');
+            });
+
+            const activeBtn = document.getElementById(`nav-${pageId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('text-sharingan-500', 'bg-darkbg-900/80', 'border', 'border-sharingan-900/20');
+                activeBtn.classList.remove('text-slate-300');
+            }
+        }
+
+        // תפריט נייד
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = 'fa-solid fa-xmark text-xl';
+            } else {
+                menu.classList.add('hidden');
+                icon.className = 'fa-solid fa-bars text-xl';
+            }
+        }
+
+        // קוד כניסה לצוות האתר
+        function openPasscodeModal() {
+            if (isAdminAuthenticated) {
+                navigateTo('admin');
+                return;
+            }
+            document.getElementById('passcode-error-msg').classList.add('hidden');
+            document.getElementById('admin-passcode-input').value = '';
+            document.getElementById('passcode-modal').classList.remove('hidden');
+        }
+
+        function closePasscodeModal() {
+            document.getElementById('passcode-modal').classList.add('hidden');
+        }
+
+        function verifyPasscode(event) {
+            event.preventDefault();
+            const enteredCode = document.getElementById('admin-passcode-input').value;
+            
+            if (enteredCode === '1224') {
+                isAdminAuthenticated = true;
+                closePasscodeModal();
+                
+                const navAdminBtn = document.getElementById('nav-admin');
+                if (navAdminBtn) {
+                    navAdminBtn.innerHTML = '<i class="fa-solid fa-lock-open ml-1.5 text-xs text-amber-400"></i>פאנל ניהול';
+                    navAdminBtn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-extrabold text-amber-400 bg-amber-950/20 border border-amber-500/50 shadow-lg shadow-amber-500/10 transition-all";
+                }
+                
+                populateAnimeSelectOptions();
+                renderRecruitmentRequests();
+                renderManageAnimeTable();
+                navigateTo('admin');
+                
+                showModal("כניסת מנהל אושרה!", "ברוך הבא לאזור צוות האתר. פאנל הניהול פתוח כעת בפניך להעלאת תכנים, ניהול סדרות קיימות וניהול בקשות גיוס.", "fa-user-shield");
+            } else {
+                document.getElementById('passcode-error-msg').classList.remove('hidden');
+                document.getElementById('admin-passcode-input').value = '';
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminAuthenticated = false;
+            const navAdminBtn = document.getElementById('nav-admin');
+            if (navAdminBtn) {
+                navAdminBtn.innerHTML = '<i class="fa-solid fa-lock ml-1.5 text-xs"></i>צוות האתר';
+                navAdminBtn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-semibold text-amber-400 hover:bg-amber-500/10 hover:text-amber-300 border border-amber-500/20 transition-all";
+            }
+            navigateTo('home');
+            showModal("התנתקת בהצלחה", "יצאת בהצלחה מאזור פאנל הניהול המאובטח.", "fa-arrow-right-from-bracket");
+        }
+
+        // הצגת פרקים אחרונים בדף הבית
+        function renderLatestEpisodes() {
+            const grid = document.getElementById('latest-episodes-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            let hasEpisodes = false;
+
+            animeDatabase.forEach(anime => {
+                if (anime.episodes && anime.episodes.length > 0) {
+                    hasEpisodes = true;
+                    anime.episodes.forEach(ep => {
+                        const card = document.createElement('div');
+                        card.className = "bg-darkbg-800 rounded-2xl overflow-hidden border border-darkbg-700/60 shadow-lg hover:shadow-red-glow/20 transition-all transform hover:-translate-y-1 cursor-pointer group";
+                        card.onclick = () => watchEpisode(anime.id, ep.number);
+                        
+                        const displayThumb = anime.thumbnail || 'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200&auto=format&fit=crop';
+                        
+                        card.innerHTML = `
+                            <div class="relative h-40 bg-slate-900 overflow-hidden">
+                                <img src="${displayThumb}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${anime.title}" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200&auto=format&fit=crop'">
+                                <span class="absolute top-3 right-3 bg-sharingan-600 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg">פרק ${ep.number}</span>
+                                <span class="absolute bottom-3 left-3 bg-black/75 backdrop-blur text-[10px] text-slate-300 px-2 py-1 rounded">
+                                    <i class="fa-solid fa-clock ml-1"></i>${ep.updateDate}
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-white text-sm line-clamp-1 group-hover:text-sharingan-400 transition-colors">${anime.title}</h3>
+                                <p class="text-xs text-slate-400 mt-1 line-clamp-1">${ep.title}</p>
+                                <div class="flex items-center justify-between mt-4 pt-3 border-t border-darkbg-700/50 text-[11px] text-slate-500 font-semibold">
+                                    <span><i class="fa-regular fa-eye ml-1"></i>צפייה ישירה</span>
+                                    <span class="text-sharingan-500 group-hover:underline">נגן עכשיו <i class="fa-solid fa-circle-play mr-1"></i></span>
+                                </div>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+                }
+            });
+
+            if (!hasEpisodes) {
+                grid.className = "block col-span-full";
+                grid.innerHTML = `
+                    <div class="text-center py-16 bg-darkbg-800 rounded-2xl border border-darkbg-700/60 shadow-inner">
+                        <div class="w-20 h-20 bg-darkbg-900 rounded-full flex items-center justify-center mx-auto mb-4 border border-darkbg-700">
+                            <i class="fa-solid fa-clapperboard text-3xl text-slate-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">אין עדיין פרקים באתר</h3>
+                        <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">כדי להעלות פרקים, לחצו על כפתור "צוות האתר", הכניסו את קוד הגישה שקיבלתם והתחילו למלא את האתר בתוכן מעולה.</p>
+                        <button onclick="openPasscodeModal()" class="bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold text-xs px-5 py-3 rounded-xl shadow-red-glow transition-all">
+                            <i class="fa-solid fa-lock-open ml-2"></i>היכנסו לפאנל ניהול צוות
+                        </button>
+                    </div>
+                `;
+            } else {
+                grid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6";
+            }
+        }
+
+        // הצגת מאגר הפרויקטים
+        function renderProjects(filterText = '') {
+            const grid = document.getElementById('projects-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            let filteredList = animeDatabase;
+
+            if (selectedFilter !== 'all') {
+                filteredList = filteredList.filter(anime => anime.status === selectedFilter);
+            }
+
+            if (filterText.trim() !== '') {
+                const searchLower = filterText.toLowerCase();
+                filteredList = filteredList.filter(anime => 
+                    anime.title.toLowerCase().includes(searchLower) || 
+                    anime.genres.toLowerCase().includes(searchLower) ||
+                    (anime.englishTitle && anime.englishTitle.toLowerCase().includes(searchLower))
+                );
+            }
+
+            if (filteredList.length === 0) {
+                grid.className = "block col-span-full";
+                grid.innerHTML = `
+                    <div class="text-center py-16 bg-darkbg-800 rounded-2xl border border-darkbg-700/60 shadow-inner">
+                        <div class="w-20 h-20 bg-darkbg-900 rounded-full flex items-center justify-center mx-auto mb-4 border border-darkbg-700">
+                            <i class="fa-solid fa-ghost text-3xl text-slate-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">לא נמצאו פרויקטים מתאימים</h3>
+                        <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">
+                            ${animeDatabase.length === 0 ? "מאגר הפרויקטים ריק לחלוטין ברגע זה." : "נסו לחפש ז'אנר אחר או לשנות את מונח החיפוש."}
+                        </p>
+                    </div>
+                `;
+                return;
+            } else {
+                grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8";
+            }
+
+            filteredList.forEach(anime => {
+                const card = document.createElement('div');
+                card.className = "bg-darkbg-800 rounded-2xl overflow-hidden border border-darkbg-700/60 shadow-lg flex flex-col justify-between";
+                
+                let statusBg = 'bg-purple-600';
+                if (anime.status === 'פעיל') {
+                    statusBg = 'bg-emerald-600';
+                } else if (anime.status === 'הושלם') {
+                    statusBg = 'bg-blue-600';
+                }
+
+                const defaultBanner = 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop';
+                const animeBannerSrc = anime.banner ? anime.banner : defaultBanner;
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="h-44 relative bg-slate-900 overflow-hidden">
+                            <img src="${animeBannerSrc}" class="w-full h-full object-cover opacity-85" alt="${anime.title}" onerror="this.src='${defaultBanner}'">
+                            <span class="absolute top-3 right-3 ${statusBg} text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md">${anime.status}</span>
+                            <span class="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md text-[10px] text-sharingan-400 font-bold px-2.5 py-1 rounded-lg border border-sharingan-500/20">${anime.genres}</span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-extrabold text-white text-lg mb-2">${anime.title}</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">${anime.description}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <div class="border-t border-darkbg-700/60 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-slate-500 font-bold"><i class="fa-solid fa-list-ol ml-1"></i> ${anime.episodes ? anime.episodes.length : 0} פרקים זמינים</span>
+                            <button onclick="watchEpisode('${anime.id}', 1)" class="bg-sharingan-600 hover:bg-sharingan-700 text-white font-bold text-xs px-4 py-2 rounded-xl transition-all" ${(!anime.episodes || anime.episodes.length === 0) ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : ''}>
+                                ${(!anime.episodes || anime.episodes.length === 0) ? 'אין פרקים' : 'לצפייה ישירה'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // סינון פרויקטים
+        function filterProjects(status) {
+            selectedFilter = status;
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-darkbg-800 text-slate-300 hover:bg-darkbg-700";
+            });
+
+            const activeBtnMap = {
+                'all': 'filter-all',
+                'פעיל': 'filter-active',
+                'הושלם': 'filter-completed',
+                'סרט': 'filter-movie'
+            };
+
+            const targetBtn = document.getElementById(activeBtnMap[status]);
+            if (targetBtn) {
+                targetBtn.className = "filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-sharingan-600 text-white shadow-red-glow";
+            }
+
+            renderProjects();
+        }
+
+        // חיפוש פרויקטים
+        function handleGlobalSearch(event) {
+            const val = event.target.value;
+            navigateTo('projects');
+            
+            document.getElementById('global-search').value = val;
+            document.getElementById('mobile-global-search').value = val;
+            
+            renderProjects(val);
+        }
+
+        // עדכון סטטיסטיקות
+        function updateStats() {
+            const totalProjects = animeDatabase.length;
+            let totalEpisodes = 0;
+            animeDatabase.forEach(a => {
+                if (a.episodes) totalEpisodes += a.episodes.length;
+            });
+
+            const statProjectsEl = document.getElementById('stat-projects');
+            const statEpisodesEl = document.getElementById('stat-episodes');
+            const statTeamEl = document.getElementById('stat-team');
+
+            if (statProjectsEl) statProjectsEl.innerText = totalProjects;
+            if (statEpisodesEl) statEpisodesEl.innerText = totalEpisodes;
+            if (statTeamEl) statTeamEl.innerText = recruitmentRequests.length > 0 ? recruitmentRequests.length : '0';
+        }
+
+        // נגן וידאו ושידור פרק
+        function watchEpisode(animeId, episodeNum) {
+            currentAnimeId = animeId;
+            currentEpisodeNumber = parseInt(episodeNum);
+            
+            const anime = animeDatabase.find(a => a.id === animeId);
+            if (!anime) return;
+
+            const episode = anime.episodes.find(e => e.number === currentEpisodeNumber);
+            if (!episode) return;
+
+            navigateTo('player');
+
+            document.getElementById('player-path-anime').innerText = anime.title;
+            document.getElementById('player-path-episode').innerText = `פרק ${episode.number}`;
+            document.getElementById('player-anime-title').innerText = anime.title;
+            document.getElementById('player-episode-title').innerText = `פרק ${episode.number}: ${episode.title}`;
+
+            document.getElementById('video-iframe').classList.add('hidden');
+            document.getElementById('video-iframe').src = "";
+            document.getElementById('fake-video-overlay').classList.add('hidden');
+            document.getElementById('player-bg-poster').src = anime.banner || 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop';
+
+            document.getElementById('download-link-mega').href = episode.videoUrl || '#';
+            document.getElementById('download-link-drive').href = episode.videoUrl || '#';
+
+            document.getElementById('player-card-banner').src = anime.banner || 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop';
+            document.getElementById('player-card-thumbnail').src = anime.thumbnail || 'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200&auto=format&fit=crop';
+            document.getElementById('player-card-title').innerText = anime.title;
+            document.getElementById('player-card-genres').innerText = anime.genres;
+            document.getElementById('player-card-description').innerText = anime.description;
+            
+            const statusLabel = document.getElementById('player-card-status');
+            statusLabel.innerText = anime.status;
+            if (anime.status === 'פעיל') {
+                statusLabel.className = 'absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md';
+            } else {
+                statusLabel.className = 'absolute top-4 right-4 bg-sharingan-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md';
+            }
+
+            renderPlayerEpisodesList(anime);
+            renderComments();
+
+            document.getElementById('prev-ep-btn').disabled = currentEpisodeNumber === 1;
+            document.getElementById('next-ep-btn').disabled = currentEpisodeNumber === anime.episodes.length;
+        }
+
+        function startMockVideoPlay() {
+            const overlay = document.getElementById('fake-video-overlay');
+            const iframe = document.getElementById('video-iframe');
+            
+            overlay.classList.remove('hidden');
+
+            const anime = animeDatabase.find(a => a.id === currentAnimeId);
+            const episode = anime ? anime.episodes.find(e => e.number === currentEpisodeNumber) : null;
+            const targetUrl = episode ? episode.videoUrl : "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                iframe.classList.remove('hidden');
+                iframe.src = targetUrl;
+            }, 1200);
+        }
+
+        function renderPlayerEpisodesList(anime, filterStr = '') {
+            const listContainer = document.getElementById('player-episodes-list');
+            if (!listContainer) return;
+            listContainer.innerHTML = '';
+            document.getElementById('player-ep-count').innerText = `${anime.episodes ? anime.episodes.length : 0} פרקים`;
+
+            let list = anime.episodes || [];
+            if (filterStr.trim() !== '') {
+                list = list.filter(ep => ep.number.toString().includes(filterStr));
+            }
+
+            list.forEach(ep => {
+                const item = document.createElement('button');
+                const isActive = ep.number === currentEpisodeNumber;
+                
+                item.className = `w-full text-right p-3 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-between transition-all border ${
+                    isActive 
+                    ? 'bg-sharingan-900/30 border-sharingan-600 text-white shadow-red-glow/20' 
+                    : 'bg-darkbg-900 border-darkbg-800 hover:bg-darkbg-700/40 text-slate-300'
+                }`;
+                
+                item.onclick = () => watchEpisode(anime.id, ep.number);
+                item.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <i class="fa-regular ${isActive ? 'fa-circle-dot text-sharingan-500' : 'fa-circle text-slate-500'} text-[10px]"></i>
+                        <span>פרק ${ep.number}: ${ep.title}</span>
+                    </div>
+                    <span class="text-[10px] text-slate-500">${ep.updateDate}</span>
+                `;
+                listContainer.appendChild(item);
+            });
+        }
+
+        function searchEpisodesInPlayer(val) {
+            const anime = animeDatabase.find(a => a.id === currentAnimeId);
+            if (anime) {
+                renderPlayerEpisodesList(anime, val);
+            }
+        }
+
+        function navigateEpisode(direction) {
+            const nextEpNum = currentEpisodeNumber + direction;
+            watchEpisode(currentAnimeId, nextEpNum);
+        }
+
+        // מערכת תגובות
+        function renderComments() {
+            const key = `${currentAnimeId}-${currentEpisodeNumber}`;
+            const commentsList = mockComments[key] || [];
+            
+            document.getElementById('comment-count').innerText = `${commentsList.length} תגובות`;
+            
+            const container = document.getElementById('comments-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            if (commentsList.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-500 text-xs">
+                        אין תגובות לפרק זה עדיין. תהיו הראשונים להגיב!
+                    </div>
+                `;
+                return;
+            }
+
+            commentsList.forEach(com => {
+                const block = document.createElement('div');
+                block.className = "pt-4 first:pt-0";
+                block.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-full bg-darkbg-700 border border-sharingan-800/40 flex items-center justify-center font-bold text-sharingan-400 text-sm w-10 h-10 flex-shrink-0">
+                            ${com.author.slice(0, 2).toUpperCase()}
+                        </div>
+                        <div class="flex-grow space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-bold text-white">${com.author}</span>
+                                <span class="text-[10px] text-slate-500">${com.date}</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${com.text}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(block);
+            });
+        }
+
+        async function handleNewComment(event) {
+            event.preventDefault();
+            const author = document.getElementById('comment-author').value;
+            const text = document.getElementById('comment-text').value;
+
+            const key = `${currentAnimeId}-${currentEpisodeNumber}`;
+            if (!mockComments[key]) {
+                mockComments[key] = [];
+            }
+
+            mockComments[key].unshift({
+                author: author,
+                text: text,
+                date: 'ממש עכשיו'
+            });
+
+            document.getElementById('comment-text').value = '';
+            
+            if (useFirebase && currentUser) {
+                try {
+                    const commentDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'comments', key);
+                    await setDoc(commentDocRef, {
+                        list: mockComments[key]
+                    });
+                } catch (err) {
+                    console.error("שגיאה בשמירת תגובה: ", err);
+                }
+            }
+            renderComments();
+        }
+
+        // פעולות מנהל מערכת
+        function updateImagePreview() {
+            const bannerUrl = document.getElementById('anime-banner-url').value.trim();
+            const thumbUrl = document.getElementById('anime-thumb-url').value.trim();
+            
+            const bannerPreview = document.getElementById('banner-preview');
+            const bannerPlaceholder = document.getElementById('banner-preview-placeholder');
+            
+            const thumbPreview = document.getElementById('thumb-preview');
+            const thumbPlaceholder = document.getElementById('thumb-preview-placeholder');
+            
+            if (bannerUrl) {
+                bannerPreview.src = bannerUrl;
+                bannerPreview.classList.remove('hidden');
+                bannerPlaceholder.classList.add('hidden');
+            } else {
+                bannerPreview.src = "";
+                bannerPreview.classList.add('hidden');
+                bannerPlaceholder.classList.remove('hidden');
+            }
+            
+            if (thumbUrl) {
+                thumbPreview.src = thumbUrl;
+                thumbPreview.classList.remove('hidden');
+                thumbPlaceholder.classList.add('hidden');
+            } else {
+                thumbPreview.src = "";
+                thumbPreview.classList.add('hidden');
+                thumbPlaceholder.classList.remove('hidden');
+            }
+        }
+
+        function populateAnimeSelectOptions() {
+            const selectEl = document.getElementById('episode-anime-select');
+            if (!selectEl) return;
+            selectEl.innerHTML = '<option value="">-- בחרו סדרה מתוך הרשימה --</option>';
+            
+            animeDatabase.forEach(anime => {
+                const opt = document.createElement('option');
+                opt.value = anime.id;
+                opt.innerText = anime.title;
+                selectEl.appendChild(opt);
+            });
+        }
+
+        async function handleAdminAddAnime(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('anime-title').value;
+            const engTitle = document.getElementById('anime-eng-title').value;
+            const genres = document.getElementById('anime-genres').value;
+            const status = document.getElementById('anime-status').value;
+            const banner = document.getElementById('anime-banner-url').value.trim();
+            const thumb = document.getElementById('anime-thumb-url').value.trim();
+            const desc = document.getElementById('anime-description').value;
+
+            const id = engTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+            if (animeDatabase.some(a => a.id === id)) {
+                showModal("סדרה כבר קיימת", "כבר קיימת סדרה במערכת עם מזהה דומה, נסו להשתמש בשם אחר באנגלית.", "fa-triangle-exclamation");
+                return;
+            }
+
+            const newAnime = {
+                title: title,
+                englishTitle: engTitle,
+                genres: genres,
+                status: status,
+                banner: banner,
+                thumbnail: thumb,
+                description: desc,
+                episodes: []
+            };
+
+            if (useFirebase && currentUser) {
+                try {
+                    await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'anime', id), newAnime);
+                } catch (err) {
+                    console.error("שגיאה בשמירה בענן: ", err);
+                    showModal("שגיאת שמירה", "קרתה תקלה בשמירת הסדרה בענן, נסה שנית.", "fa-triangle-exclamation");
+                    return;
+                }
+            } else {
+                animeDatabase.push({ id, ...newAnime });
+                renderLatestEpisodes();
+                renderProjects();
+                updateStats();
+                populateAnimeSelectOptions();
+                renderManageAnimeTable();
+            }
+
+            document.getElementById('admin-add-anime-form').reset();
+            updateImagePreview();
+            showModal("הסדרה נוצרה בהצלחה!", `הסדרה <strong>${title}</strong> נוספה בהצלחה לאינדקס הפרויקטים באתר. כעת ניתן להעלות עבורה פרקים דרך שלב 2.`, "fa-folder-plus");
+        }
+
+        async function handleAdminAddEpisode(event) {
+            event.preventDefault();
+
+            const animeId = document.getElementById('episode-anime-select').value;
+            const epNum = parseInt(document.getElementById('episode-number').value);
+            const date = document.getElementById('episode-date').value;
+            const title = document.getElementById('episode-title').value;
+            const videoUrl = document.getElementById('episode-video-url').value;
+
+            if (!animeId) {
+                showModal("שגיאה בבחירה", "אנא בחרו סדרה חוקית מתוך הרשימה.", "fa-triangle-exclamation");
+                return;
+            }
+
+            const anime = animeDatabase.find(a => a.id === animeId);
+            if (!anime) return;
+
+            if (!anime.episodes) {
+                anime.episodes = [];
+            }
+
+            if (anime.episodes.some(e => e.number === epNum)) {
+                showModal("פרק קיים", `פרק מספר ${epNum} כבר קיים עבור סדרה זו.`, "fa-triangle-exclamation");
+                return;
+            }
+
+            const newEp = {
+                number: epNum,
+                title: title,
+                updateDate: date,
+                videoUrl: videoUrl
+            };
+
+            const updatedEpisodes = [...anime.episodes, newEp];
+            updatedEpisodes.sort((a, b) => a.number - b.number);
+
+            if (useFirebase && currentUser) {
+                try {
+                    const animeRef = doc(db, 'artifacts', appId, 'public', 'data', 'anime', animeId);
+                    await updateDoc(animeRef, {
+                        episodes: updatedEpisodes
+                    });
+                } catch (err) {
+                    console.error("שגיאה בשמירת פרק: ", err);
+                    return;
+                }
+            } else {
+                anime.episodes = updatedEpisodes;
+                renderLatestEpisodes();
+                renderProjects();
+                updateStats();
+                renderManageAnimeTable();
+            }
+
+            document.getElementById('admin-add-episode-form').reset();
+            showModal("הפרק עלה לאתר!", `פרק מספר ${epNum}: <strong>${title}</strong> עלה בהצלחה לאתר והוא זמין כעת לצפייה מיידית.`, "fa-circle-check");
+        }
+
+        function renderManageAnimeTable() {
+            const tbody = document.getElementById('manage-anime-tbody');
+            const badge = document.getElementById('manage-anime-badge');
+            if (!tbody) return;
+            
+            badge.innerText = `${animeDatabase.length} סדרות`;
+            tbody.innerHTML = '';
+
+            if (animeDatabase.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="text-center py-8 text-slate-500 font-semibold">
+                            <i class="fa-solid fa-folder-open ml-2 text-base"></i> אין סדרות במערכת עדיין. השתמשו בשלב 1 למעלה כדי להוסיף.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            animeDatabase.forEach(anime => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-darkbg-700/40 hover:bg-darkbg-700/20 transition-all";
+                
+                const statusColor = anime.status === 'פעיל' ? 'text-emerald-400' : anime.status === 'הושלם' ? 'text-blue-400' : 'text-purple-400';
+                const epCount = anime.episodes ? anime.episodes.length : 0;
+                const displayThumb = anime.thumbnail || 'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200&auto=format&fit=crop';
+
+                tr.innerHTML = `
+                    <td class="py-4 pr-2 font-bold text-white">
+                        <div class="flex items-center gap-3">
+                            <img src="${displayThumb}" class="w-8 h-10 object-cover rounded shadow" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200&auto=format&fit=crop'">
+                            <div>
+                                <span class="block">${anime.title}</span>
+                                <span class="block text-[10px] text-slate-500 font-mono">${anime.id}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="py-4 text-slate-300">${anime.genres}</td>
+                    <td class="py-4 text-center font-bold text-slate-200">${epCount}</td>
+                    <td class="py-4 text-center font-bold ${statusColor}">${anime.status}</td>
+                    <td class="py-4 text-left">
+                        <div class="flex items-center justify-end gap-1.5">
+                            <select onchange="updateAnimeStatus('${anime.id}', this.value)" class="bg-darkbg-900 border border-darkbg-700 rounded-lg px-2 py-1 text-xs text-slate-200 focus:outline-none">
+                                <option value="פעיל" ${anime.status === 'פעיל' ? 'selected' : ''}>פעיל</option>
+                                <option value="הושלם" ${anime.status === 'הושלם' ? 'selected' : ''}>הושלם</option>
+                                <option value="סרט" ${anime.status === 'סרט' ? 'selected' : ''}>סרט / אובה</option>
+                            </select>
+                            <button onclick="deleteAnime('${anime.id}')" class="bg-red-950 hover:bg-red-900 border border-red-800 text-red-200 font-bold text-xs px-2.5 py-1 rounded-lg transition-all flex items-center gap-1">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function updateAnimeStatus(id, newStatus) {
+            const anime = animeDatabase.find(a => a.id === id);
+            if (!anime) return;
+
+            if (useFirebase && currentUser) {
+                try {
+                    const animeRef = doc(db, 'artifacts', appId, 'public', 'data', 'anime', id);
+                    await updateDoc(animeRef, {
+                        status: newStatus
+                    });
+                } catch (err) {
+                    console.error("שגיאה בעדכון סטטוס: ", err);
+                    return;
+                }
+            } else {
+                anime.status = newStatus;
+                renderProjects();
+                renderLatestEpisodes();
+                renderManageAnimeTable();
+                updateStats();
+            }
+            showModal("סטטוס עודכן", `הסטטוס של האנימה <strong>${anime.title}</strong> שונה בהצלחה ל-<strong>${newStatus}</strong>.`, "fa-circle-check");
+        }
+
+        async function deleteAnime(id) {
+            const anime = animeDatabase.find(a => a.id === id);
+            if (!anime) return;
+
+            if (useFirebase && currentUser) {
+                try {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'anime', id));
+                } catch (err) {
+                    console.error("שגיאה במחיקת סדרה: ", err);
+                    return;
+                }
+            } else {
+                animeDatabase = animeDatabase.filter(a => a.id !== id);
+                if (currentAnimeId === id) {
+                    currentAnimeId = '';
+                    navigateTo('home');
+                }
+                populateAnimeSelectOptions();
+                renderProjects();
+                renderLatestEpisodes();
+                renderManageAnimeTable();
+                updateStats();
+            }
+            showModal("סדרה נמחקה בהצלחה", `הסדרה <strong>${anime.title}</strong> וכל הפרקים המקושרים אליה הוסרו לחלוטין מהמערכת.`, "fa-trash-can");
+        }
+
+        // מערכת גיוסים
+        async function submitRecruitment(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('recruit-name').value;
+            const discord = document.getElementById('recruit-discord').value;
+            const email = document.getElementById('recruit-email').value;
+            const role = document.getElementById('recruit-role').value;
+
+            const newRequest = {
+                name: name,
+                discord: discord,
+                email: email,
+                role: role,
+                date: new Date().toLocaleDateString('he-IL')
+            };
+
+            const docId = Date.now();
+
+            if (useFirebase && currentUser) {
+                try {
+                    await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'recruitment', String(docId)), newRequest);
+                } catch (err) {
+                    console.error("שגיאה בשליחת בקשת גיוס: ", err);
+                    return;
+                }
+            } else {
+                recruitmentRequests.push({ id: docId, ...newRequest });
+                updateStats();
+                if (isAdminAuthenticated) {
+                    renderRecruitmentRequests();
+                }
+            }
+
+            showModal("הטופס נשלח בהצלחה!", `תודה רבה לך, <strong>${name}</strong>!<br>בקשתך להתגייס בתור <strong>${role}</strong> התקבלה. חברי הניהול יבחנו את בקשתך בפאנל "צוות האתר" ויצרו איתך קשר בדיסקורד (<strong>${discord}</strong>) בהקדם לצורך מבחן קבלה קצר.`, "fa-paper-plane");
+            document.getElementById('recruitment-form').reset();
+        }
+
+        function renderRecruitmentRequests() {
+            const tableBody = document.getElementById('recruitment-requests-body');
+            const badge = document.getElementById('recruitment-badge');
+            if (!tableBody) return;
+            
+            badge.innerText = `${recruitmentRequests.length} מועמדים`;
+            tableBody.innerHTML = '';
+
+            if (recruitmentRequests.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center py-8 text-slate-500 font-semibold">
+                            <i class="fa-solid fa-folder-open ml-2 text-base"></i> אין בקשות גיוס חדשות ברשימה כרגע.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            recruitmentRequests.forEach(req => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-darkbg-700/40 hover:bg-darkbg-700/20 transition-all";
+                tr.innerHTML = `
+                    <td class="py-4 pr-2 font-bold text-white">${req.name}</td>
+                    <td class="py-4 text-sharingan-400 font-mono">${req.discord}</td>
+                    <td class="py-4 text-slate-300 font-mono">${req.email}</td>
+                    <td class="py-4">
+                        <span class="bg-sharingan-950/60 border border-sharingan-800 text-sharingan-400 px-2 py-0.5 rounded text-xs font-bold">${req.role}</span>
+                    </td>
+                    <td class="py-4 text-slate-400">${req.date}</td>
+                    <td class="py-4 text-left">
+                        <div class="flex items-center justify-end gap-1.5">
+                            <button onclick="approveRecruiter(${req.id})" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-2.5 py-1.5 rounded-lg transition-colors flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> אשר מועמד
+                            </button>
+                            <button onclick="deleteRecruiter(${req.id})" class="bg-red-950 hover:bg-red-900 border border-red-800 text-red-200 font-bold text-xs px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1">
+                                <i class="fa-solid fa-trash-can"></i> מחק
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        async function approveRecruiter(id) {
+            const candidate = recruitmentRequests.find(r => r.id === id);
+            if (!candidate) return;
+
+            if (useFirebase && currentUser) {
+                try {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'recruitment', String(id)));
+                } catch (err) {
+                    console.error("שגיאה באישור מועמד: ", err);
+                    return;
+                }
+            } else {
+                recruitmentRequests = recruitmentRequests.filter(r => r.id !== id);
+                renderRecruitmentRequests();
+                updateStats();
+            }
+            showModal("המועמד אושר בהצלחה!", `מועמדותו של <strong>${candidate.name}</strong> לתפקיד <strong>${candidate.role}</strong> אושרה בהצלחה! שלחנו לו התראה וצוות האקאטסוקי יצור איתו קשר מיידית בדיסקורד.`, "fa-user-plus");
+        }
+
+        async function deleteRecruiter(id) {
+            const candidate = recruitmentRequests.find(r => r.id === id);
+            if (!candidate) return;
+
+            if (useFirebase && currentUser) {
+                try {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'recruitment', String(id)));
+                } catch (err) {
+                    console.error("שגיאה במחיקת מועמד: ", err);
+                    return;
+                }
+            } else {
+                recruitmentRequests = recruitmentRequests.filter(r => r.id !== id);
+                renderRecruitmentRequests();
+                updateStats();
+            }
+            showModal("הבקשה נמחקה", `בקשת ההצטרפות של <strong>${candidate.name}</strong> הוסרה לצמיתות ממערכת הניהול של האתר.`, "fa-trash-can");
+        }
+
+        // מודאל עזר
+        function showModal(title, text, iconClass = "fa-check") {
+            const modal = document.getElementById('custom-modal');
+            document.getElementById('modal-title').innerHTML = title;
+            document.getElementById('modal-desc').innerHTML = text;
+            
+            const iconEl = document.getElementById('modal-icon');
+            iconEl.className = `fa-solid ${iconClass} text-2xl`;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        // רישום מאזיני אירועים ייעודיים
+        document.getElementById('anime-banner-url').addEventListener('input', updateImagePreview);
+        document.getElementById('anime-thumb-url').addEventListener('input', updateImagePreview);
+
+        // חשיפת פונקציות ל-HTML
+        window.navigateTo = navigateTo;
+        window.toggleMobileMenu = toggleMobileMenu;
+        window.openPasscodeModal = openPasscodeModal;
+        window.closePasscodeModal = closePasscodeModal;
+        window.verifyPasscode = verifyPasscode;
+        window.logoutAdmin = logoutAdmin;
+        window.filterProjects = filterProjects;
+        window.handleGlobalSearch = handleGlobalSearch;
+        window.watchEpisode = watchEpisode;
+        window.startMockVideoPlay = startMockVideoPlay;
+        window.searchEpisodesInPlayer = searchEpisodesInPlayer;
+        window.navigateEpisode = navigateEpisode;
+        window.handleNewComment = handleNewComment;
+        window.handleAdminAddAnime = handleAdminAddAnime;
+        window.handleAdminAddEpisode = handleAdminAddEpisode;
+        window.updateAnimeStatus = updateAnimeStatus;
+        window.deleteAnime = deleteAnime;
+        window.submitRecruitment = submitRecruitment;
+        window.approveRecruiter = approveRecruiter;
+        window.deleteRecruiter = deleteRecruiter;
+        window.closeModal = closeModal;
+    </script>
+</body>
+</html>
